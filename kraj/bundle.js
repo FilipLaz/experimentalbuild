@@ -4,10 +4,17 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _specs = require("./specs");
+
+var _specs2 = _interopRequireDefault(_specs);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var API = {
     fetch: function fetch(putanja) {
         return new Promise(function (resolve, reject) {
-            var url = "http://localhost:3000/" + putanja;
+            var url = _specs2.default + "/" + putanja;
             var request = new XMLHttpRequest();
 
             //treci parametar je async(non blockin g)
@@ -29,7 +36,7 @@ var API = {
 
 exports.default = API;
 
-},{}],2:[function(require,module,exports){
+},{"./specs":5}],2:[function(require,module,exports){
 "use strict";
 
 var _automobili = require("./automobili");
@@ -94,5 +101,15 @@ var templejtKola = function templejtKola(Marka, Konja, Godiste) {
 };
 
 exports.default = Rendanje;
+
+},{}],5:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var BASE_URL = "http://localhost:3000";
+
+exports.default = BASE_URL;
 
 },{}]},{},[2]);
