@@ -1,0 +1,22 @@
+{
+  "rezultati": [
+    {
+      "id": 0,
+      "Godiste": 1990,
+      "Marka": "Mercedes",
+      "Konja": 120
+    },
+    {
+      "id": 1,
+      "Godiste": 2010,
+      "Marka": "BMW",
+      "Konja": 190
+    },
+    {
+      "id": 2,
+      "Godiste": 2015,
+      "Marka": "Ferari",
+      "Konja": 320
+    }
+  ]
+}
