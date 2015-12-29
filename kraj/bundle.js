@@ -4,7 +4,22 @@
 var Automobili = {
     dajSveAsveee: function dajSveAsveee() {
         return new Promise(function (resolve, reject) {
-            resolve("OVO RADI");
+            var url = "http://localhost:3000/rezultati";
+            var request = new XMLHttpRequest();
+
+            //treci parametar je async(non blocking)
+            request.open("get", url, true);
+            request.onload = function () {
+                if (request.status >= 200 && request.status < 400) {
+                    resolve(JSON.parse(request.response));
+                }
+            };
+
+            request.onerror = function () {
+                reject(new Error("nesto puklo"));
+            };
+
+            request.send();
         });
     }
 };
@@ -15,6 +30,8 @@ var Rendanje = {
     }
 };
 
-Automobili.dajSveAsveee().then(Rendanje.rendajSvaKola);
+Automobili.dajSveAsveee().then(Rendanje.rendajSvaKola).catch(function (error) {
+    console.log(error);
+});
 
 },{}]},{},[1]);

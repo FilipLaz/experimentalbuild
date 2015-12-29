@@ -1,7 +1,22 @@
 let Automobili = {
     dajSveAsveee() {
         return new Promise( (resolve, reject) => {
-            resolve("OVO RADI");
+            let url = "http://localhost:3000/rezultati";
+            let request = new XMLHttpRequest();
+
+            //treci parametar je async(non blocking)
+            request.open("get", url, true);
+            request.onload = () => {
+                if(request.status >= 200 && request.status < 400) {
+                    resolve( JSON.parse(request.response) );
+                }
+            }
+
+            request.onerror = () => {
+                reject( new Error("nesto puklo") );
+            }
+
+            request.send();
         });
     }
 }
@@ -12,4 +27,8 @@ let Rendanje = {
     }
 }
 
-Automobili.dajSveAsveee().then(Rendanje.rendajSvaKola);
+Automobili.dajSveAsveee()
+    .then(Rendanje.rendajSvaKola)
+    .catch( (error) => {
+        console.log(error)
+    });
