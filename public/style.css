@@ -1,0 +1,19 @@
+.main {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.main__item {
+    height: 150px;
+    background: #ccc;
+    border: 1px dotted #000;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.main__item__part {
+    padding: 10px;
+}
