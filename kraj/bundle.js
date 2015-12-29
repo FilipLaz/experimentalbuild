@@ -26,7 +26,21 @@ var Automobili = {
 
 var Rendanje = {
     rendajSvaKola: function rendajSvaKola(ulaz) {
-        console.log("izlazz-->", ulaz);
+        var templejtKola = function templejtKola(Marka, Konja, Godiste) {
+            //vazno je returnovati templejt string
+            return "<div class=\"main__item\">\n                <div class=\"main__item__part\">\n                    Godiste\n                    <div>" + Godiste + "</div>\n                </div>\n                <div class=\"main__item__part\">\n                    Marka:\n                    <div>" + Marka + "</div>\n                </div>\n                <div class=\"main__item__part\">\n                    Konja:\n                    <div>" + Konja + "</div>\n                </div>\n            </div>";
+        };
+
+        var generisaniHtml = ulaz.map(function (kola) {
+            var Marka = kola.Marka;
+            var Konja = kola.Konja;
+            var Godiste = kola.Godiste;
+
+            return templejtKola(Marka, Konja, Godiste);
+        });
+
+        var target = document.querySelector(".js-main");
+        target.innerHTML = generisaniHtml.join("");
     }
 };
 
