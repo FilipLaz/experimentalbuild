@@ -1,12 +1,10 @@
- import BASE_URL from "./specs";
-
- let API = {
+let API = {
     fetch(putanja) {
         return new Promise( (resolve, reject) => {
-            let url = `${BASE_URL}/${putanja}`;
+            let url = `http://localhost:3000/${putanja}`;
             let request = new XMLHttpRequest();
 
-            //treci parametar je async(non blockin g)
+            //treci parametar je async(non blocking)
             request.open("get", url, true);
             request.onload = () => {
                 if(request.status >= 200 && request.status < 400) {
